@@ -210,13 +210,13 @@ def sdrf(
         ix_min = C.argmin().item()
         x = ix_min // N
         y = ix_min % N
-
+        
         if is_undirected:
             x_neighbors = list(G.neighbors(x)) + [x]
-            y_neighbors = list(G.neighbors(y)) + [x]
+            y_neighbors = list(G.neighbors(y)) + [y]
         else:
             x_neighbors = list(G.successors(x)) + [x]
-            y_neighbors = list(G.predecessors(y)) + [x]
+            y_neighbors = list(G.predecessors(y)) + [y]
         candidates = []
         for i in x_neighbors:
             for j in y_neighbors:

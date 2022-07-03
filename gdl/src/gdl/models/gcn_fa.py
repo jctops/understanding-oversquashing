@@ -43,5 +43,6 @@ class GCN_FA(torch.nn.Module):
             else:
                 # FA layer!
                 x = layer(x)
+                x = torch.matmul(torch.ones(x.shape[0], x.shape[0]).cuda(), x)
 
         return torch.nn.functional.log_softmax(x, dim=1)
